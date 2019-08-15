@@ -1,7 +1,6 @@
 from flask import Flask, redirect, request
 from flask_restplus import Api, Resource, fields
 import requests
-import json
 import urllib.parse
 
 
