@@ -2,6 +2,7 @@ from flask import Flask, redirect, request
 from flask_restplus import Api, Resource, fields
 import requests
 import urllib.parse
+import json
 
 
 app = Flask(__name__)
@@ -52,10 +53,16 @@ class Callback(Resource):
             'cache-control': "no-cache"
         }
 
-        response = requests.request("POST", url, data=payload, headers=headers)
+        resp = requests.request("POST", url, data=payload, headers=headers)
 
+        data = json.loads(resp.content.decode("utf-8"))
 
-        return redirect('https://spotify-mgmt.herokuapp.com/', code = 307)
+        auth = data["access_token"]
+
+        response = redirect('https://spotify-mgmt.herokuapp.com/')
+        response.headers = {'authorization' : auth}
+
+        return response
 
 
 if __name__ == '__main__':
