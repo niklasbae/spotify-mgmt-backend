@@ -59,7 +59,7 @@ class Callback(Resource):
 
         auth = data["access_token"]
 
-        return redirect('https://spotify-mgmt.herokuapp.com/#/home?a='+auth, code = 307)
+        return redirect('https://spotify-mgmt.herokuapp.com/home?a='+auth, code = 307)
 
 
 if __name__ == '__main__':
