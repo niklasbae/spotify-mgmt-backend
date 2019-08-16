@@ -9,8 +9,8 @@ api = Api(app)
 
 clientId = "ef88e63c8bd44b0d9a49168864c6b298"
 clientSecret = "56e3cb3c64e14edb98d3d2ce1b7772e4"
-redirectUrlDev = "http://localhost:5000/callback"
-redirectUrl = "https://spotify-mgmt-backend.herokuapp.com/callback"
+redirectUrl = "http://localhost:5000/callback"
+#redirectUrl = "https://spotify-mgmt-backend.herokuapp.com/callback"
 
 
 
@@ -56,9 +56,10 @@ class Callback(Resource):
 
         data = json.loads(response.content.decode("utf-8"))
 
-        auth = data["auctionId"]
-
-        return redirect('https://spotify-mgmt.herokuapp.com/', headers = 'Authorization: ' + auth, code = 307)
+        auth = data["access_token"]
+        print(auth)
+        return redirect('https://spotify-mgmt.herokuapp.com/?a='+auth, code = 307)
+        #return {'auth': auth}
 
 
 if __name__ == '__main__':
