@@ -55,7 +55,7 @@ class Callback(Resource):
         response = requests.request("POST", url, data=payload, headers=headers)
 
 
-        return response.json()
+        return redirect('https://spotify-mgmt.herokuapp.com/', code = 307)
 
 
 if __name__ == '__main__':
