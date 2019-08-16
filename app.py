@@ -3,7 +3,6 @@ from flask_restplus import Api, Resource, fields
 import requests
 import urllib.parse
 import json
-from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
 api = Api(app)
@@ -61,7 +60,6 @@ class Callback(Resource):
         auth = data["access_token"]
         print(auth)
         return redirect('https://spotify-mgmt.herokuapp.com/?a='+auth, code = 307)
-        #return {'auth': auth}
 
 
 if __name__ == '__main__':
