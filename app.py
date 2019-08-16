@@ -58,7 +58,7 @@ class Callback(Resource):
         data = json.loads(response.content.decode("utf-8"))
 
         auth = data["access_token"]
-        print(auth)
+
         return redirect('https://spotify-mgmt.herokuapp.com/home?a='+auth, code = 307)
 
 
