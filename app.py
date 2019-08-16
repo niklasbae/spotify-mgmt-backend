@@ -9,8 +9,8 @@ api = Api(app)
 
 clientId = "ef88e63c8bd44b0d9a49168864c6b298"
 clientSecret = "56e3cb3c64e14edb98d3d2ce1b7772e4"
-redirectUrl = "http://localhost:5000/callback"
-#redirectUrl = "https://spotify-mgmt-backend.herokuapp.com/callback"
+#redirectUrl = "http://localhost:5000/callback"
+redirectUrl = "https://spotify-mgmt-backend.herokuapp.com/callback"
 
 
 
