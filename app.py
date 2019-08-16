@@ -7,12 +7,13 @@ from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
 api = Api(app)
+CORS(app, origins = "https://spotify-mgmt.herokuapp.com", allow_headers = ["Content-Type"])
 
 
 clientId = "ef88e63c8bd44b0d9a49168864c6b298"
 clientSecret = "56e3cb3c64e14edb98d3d2ce1b7772e4"
-#redirectUrl = "http://localhost:5000/callback"
-redirectUrl = "https://spotify-mgmt-backend.herokuapp.com/callback"
+redirectUrl = "http://localhost:5000/callback"
+#redirectUrl = "https://spotify-mgmt-backend.herokuapp.com/callback"
 
 
 
@@ -35,13 +36,8 @@ class Language(Resource):
 
 
 @api.route('/login')
-@cross_origin()
 class Login(Resource):
     def get(self):
-
-
-
-
 
         return redirect("https://accounts.spotify.com/en/login?continue=https:%2F%2Faccounts.spotify.com%2Fauthorize%3Fclient_id%3D" + clientId + "%26response_type%3Dcode%26redirect_uri%3D" + urllib.parse.quote(redirectUrl) + "%26scope%3Dplaylist-read-private")
 
