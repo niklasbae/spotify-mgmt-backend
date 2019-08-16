@@ -7,7 +7,6 @@ from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
 api = Api(app)
-CORS(app, origins = "https://spotify-mgmt.herokuapp.com", allow_headers = ["Content-Type"])
 
 
 clientId = "ef88e63c8bd44b0d9a49168864c6b298"
