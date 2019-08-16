@@ -4,7 +4,6 @@ import requests
 import urllib.parse
 import json
 
-
 app = Flask(__name__)
 api = Api(app)
 
@@ -53,16 +52,13 @@ class Callback(Resource):
             'cache-control': "no-cache"
         }
 
-        resp = requests.request("POST", url, data=payload, headers=headers)
+        response = requests.request("POST", url, data=payload, headers=headers)
 
-        data = json.loads(resp.content.decode("utf-8"))
+        data = json.loads(response.content.decode("utf-8"))
 
-        auth = data["access_token"]
+        auth = data["auctionId"]
 
-        response = redirect('https://spotify-mgmt.herokuapp.com/')
-        response.headers = {'authorization' : auth}
-
-        return response
+        return redirect('https://spotify-mgmt.herokuapp.com/', headers = auth, code = 307)
 
 
 if __name__ == '__main__':
