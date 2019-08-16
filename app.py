@@ -58,7 +58,7 @@ class Callback(Resource):
 
         auth = data["auctionId"]
 
-        return redirect('https://spotify-mgmt.herokuapp.com/', headers = auth, code = 307)
+        return redirect('https://spotify-mgmt.herokuapp.com/', headers = 'Authorization: ' + auth, code = 307)
 
 
 if __name__ == '__main__':
