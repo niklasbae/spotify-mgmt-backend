@@ -13,26 +13,6 @@ clientSecret = "56e3cb3c64e14edb98d3d2ce1b7772e4"
 #redirectUrl = "http://localhost:5000/callback"
 redirectUrl = "https://spotify-mgmt-backend.herokuapp.com/callback"
 
-
-
-a_language = api.model('language', {'language' : fields.String('The language.')})
-
-
-languages = []
-python = {'language' : 'Python'}
-languages.append(python)
-
-@api.route('/language')
-class Language(Resource):
-    def get(self):
-        return languages
-
-    @api.expect(a_language)
-    def post(self):
-        languages.append(api.payload)
-        return {'result' : 'Language added'}, 201
-
-
 @api.route('/login')
 class Login(Resource):
     def get(self):
@@ -59,7 +39,7 @@ class Callback(Resource):
 
         auth = data["access_token"]
 
-        return redirect('https://spotify-mgmt.herokuapp.com/#/token?a='+auth, code = 307)
+        return redirect('https://spotify-mgmt.herokuapp.com/#/login?a='+auth, code = 307)
 
 
 if __name__ == '__main__':
