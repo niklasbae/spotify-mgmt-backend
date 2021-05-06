@@ -24,7 +24,7 @@ extras==1.0.0
 fasteners==0.15
 fixtures==3.0.0
 Flask==1.1.1
-Flask-Cors==3.0.8
+Flask-Cors==3.0.9
 flask-restplus==0.13.0
 Flask-WTF==0.14.2
 freezer==7.1.0
