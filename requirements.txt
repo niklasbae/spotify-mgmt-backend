@@ -19,7 +19,7 @@ decorator==4.4.0
 dnspython==1.16.0
 docutils==0.14
 dogpile.cache==0.7.1
-eventlet==0.25.0
+eventlet==0.31.0
 extras==1.0.0
 fasteners==0.15
 fixtures==3.0.0
