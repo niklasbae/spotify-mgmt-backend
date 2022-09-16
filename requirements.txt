@@ -61,7 +61,7 @@ oslo.log==3.44.0
 oslo.privsep==1.33.1
 oslo.serialization==2.29.1
 oslo.service==1.40.0
-oslo.utils==3.41.0
+oslo.utils==4.10.1
 paramiko==2.6.0
 Paste==3.1.0
 PasteDeploy==2.0.1
